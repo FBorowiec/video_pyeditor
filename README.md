@@ -1,5 +1,6 @@
-# VIDEO 4:3 CONVERTER AND LENGTH TRIMMER
-Python script for converting mp4 videos into a 4:3 format and trimming their length
-
-Eecute the script with:
-`python vid_trimmer.py VIDEO_NAME.mp4 START_sec END_sec`
+# Script for basic video editing operations 
+The script lets you:
+-trim the length of a video 
+-change the format of the video 
+Execute the script with:
+`python video_pyeditor.py VIDEO_NAME.mp4 START_sec END_sec`

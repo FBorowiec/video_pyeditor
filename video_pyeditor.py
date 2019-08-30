@@ -6,6 +6,8 @@ import os
 import subprocess
 import sys
 
+print("VIDEO EDITOR 0.1")
+
 if (len(sys.argv) != 4):
     print("Not enough arguments passed!")
     print("The correct command is: python vid_trimmer_py NAME_OF_THE_VIDEO.mp4 START_sec END_sec")
