@@ -1,29 +1,36 @@
-#pip install --trusted-host pypi.python.org moviepy
-#imageio.plugins.ffmpeg.download()
-
-import imageio
+#!/usr/bin/env python3
 import os
-import subprocess
-import sys
 
-print("VIDEO EDITOR 0.1")
+from video_editor import formatter
+from video_editor import rotator
+from video_editor import trimmer
+from video_editor import resizer
 
-if (len(sys.argv) != 4):
-    print("Not enough arguments passed!")
-    print("The correct command is: python vid_trimmer_py NAME_OF_THE_VIDEO.mp4 START_sec END_sec")
-    quit()
+def main():
+  print(" VIDEO EDITOR 0.1")
+  i1 = int(input("  1. Rotate a video\n\
+  2. Trim a video\n\
+  3. Change video aspect\n\
+  [1/2/3]: "))
+  video_name = input("Please enter your video name: ")
+  video = os.getcwd() + '/videos/' + video_name
+  print(video + " is being processed...")
+  if (i1 == 1):
+    angle = ("Please enter rotation value [90, 180, -90]: ")
+    print("Not supported (yet)...")
+    #rotator.rotate_video(video, angle)
+  elif (i1 == 2):
+    start_t = int(input("start time (sec): "))
+    end_t = int(input("end time (sec): "))
+    trimmer.trim_video(video, start_t, end_t)
+  elif (i1 == 3):
+    aspect = input("Please choose aspect: [4:3, 16:9]: ")
+    formatter.format(video, aspect)
+  elif (i1 == 4):
+    size = int(input("Please choose size: [720, 1080]: "))
+    size_tuple = (size, size/(16/9))
+    print("Not supported (yet)...")
+    #resizer.resize_video(video, size_tuple)
 
-from moviepy.video.io.ffmpeg_tools import ffmpeg_extract_subclip
-
-###########################################
-video_name=sys.argv[1]
-start_t = float(sys.argv[2]) #s
-end_t = float(sys.argv[3]) #s
-video_out = sys.argv[1]+"_out.mp4"
-###########################################
-
-# ffmpeg_extract_subclip("full.mp4", start_seconds, end_seconds, targetname="cut.mp4")
-ffmpeg_extract_subclip(video_name, start_t, end_t, targetname="video_trimmed.mp4")
-cmd = "ffmpeg -i \"video_trimmed.mp4\" -c copy -aspect 4:3 \"video_out.mp4\""
-returned_value = subprocess.call(cmd, shell=True)
-os.remove("video_trimmed.mp4")
+if (__name__ == '__main__'):
+  main()
