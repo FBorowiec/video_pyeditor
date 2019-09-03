@@ -14,15 +14,14 @@ def main():
   3. Change video aspect\n\
   4. Resize a video\n\
   5. Edit date of a video \n\
-  [1/2/3]: "))
+  [1/2/3/4/5]: "))
   
   video_name = input("Please enter your video name: ")
   video = os.getcwd() + '/videos/' + video_name
   print(video + " is being processed...")
   
   if (i1 == 1):
-    print("Not supported (yet)...")
-    #rotator.rotate_video(video, angle)
+    rotator.rotate_video(video)
   elif (i1 == 2):
     trimmer.trim_video(video)
   elif (i1 == 3):
