@@ -8,7 +8,7 @@ from video_editor import resizer
 from video_editor import metadata_editor
 
 def main():
-  print(" VIDEO EDITOR 0.1")
+  print(" VIDEO EDITOR")
   i1 = int(input("  1. Rotate a video\n\
   2. Trim a video\n\
   3. Change video aspect\n\
@@ -27,8 +27,7 @@ def main():
   elif (i1 == 3):
     formatter.format(video)
   elif (i1 == 4):
-    print("Not supported (yet)...")
-    #resizer.resize_video(video)
+    resizer.resize_video(video)
   elif (i1 == 5):
     metadata_editor.date_changer(video)
   else:
