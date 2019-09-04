@@ -16,20 +16,20 @@ def main():
   5. Edit date of a video \n\
   [1/2/3/4/5]: "))
   
-  video_name = input("Please enter your video name: ")
-  video = os.getcwd() + '/videos/' + video_name
+  video_name = input("Please enter your mp4 video name (without the extension): ")
+  video = os.getcwd() + '/videos/' + video_name + '.mp4'
   print(video + " is being processed...")
   
   if (i1 == 1):
-    rotator.rotate_video(video)
+    rotator.rotate_video(video, video_name=video_name)
   elif (i1 == 2):
-    trimmer.trim_video(video)
+    trimmer.trim_video(video, video_name=video_name)
   elif (i1 == 3):
-    formatter.format(video)
+    formatter.format(video, video_name=video_name)
   elif (i1 == 4):
-    resizer.resize_video(video)
+    resizer.resize_video(video, video_name=video_name)
   elif (i1 == 5):
-    metadata_editor.date_changer(video)
+    metadata_editor.date_changer(video, video_name=video_name)
   else:
     print("Invalid choice!")
 
