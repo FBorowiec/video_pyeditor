@@ -15,7 +15,8 @@ def main():
   3. Change video aspect\n\
   4. Resize a video\n\
   5. Edit date of a video \n\
-  [1/2/3/4/5]: "))
+  6. Concatenate two videos \n\
+  [1/2/3/4/5/6]: "))
   
   video_name = input("Please enter your mp4 video name (without the extension): ")
   video = os.getcwd() + '/videos/' + video_name + '.mp4'
