@@ -7,6 +7,7 @@ from video_editor import trimmer
 from video_editor import resizer
 from video_editor import metadata_editor
 from video_editor import joiner
+from video_editor import cropper
 
 def main():
   print(" VIDEO EDITOR")
@@ -16,7 +17,8 @@ def main():
   4. Resize a video\n\
   5. Edit date of a video \n\
   6. Concatenate two videos \n\
-  [1/2/3/4/5/6]: "))
+  7. Crop a video \n\
+  [1/2/3/4/5/6/7]: "))
   
   video_name = input("Please enter your mp4 video name (without the extension): ")
   video = os.getcwd() + '/videos/' + video_name + '.mp4'
@@ -34,6 +36,8 @@ def main():
     metadata_editor.date_changer(video, video_name=video_name)
   elif (i1 == 6):
     joiner.join_videos(video, video_name=video_name)
+  elif (i1 == 7):
+    cropper.crop(video, video_name=video_name)
   else:
     print("Invalid choice!")
 
