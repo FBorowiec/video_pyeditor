@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 import os
+import json
 
 from video_editor import formatter
 from video_editor import rotator
@@ -53,7 +54,7 @@ def main():
     video = os.getcwd() + '/videos/' + video_name + '.mp4'
     print(video + " is being processed...")
     video_name = interface(input_choice, video=video, video_name=video_name)
-    proceed = bool(input("Do you want to proceed? [True, False]: "))
+    proceed = json.loads(input("Do you want to proceed? [True, False]: ").lower())
 
 if (__name__ == '__main__'):
   main()
