@@ -1,3 +1,5 @@
 ffmpeg>=1.4
 moviepy>=1.0.0
 opencv-python>=4.1.0.25
+mss>=4.0.3
+pyscreenshot>=0.5.1

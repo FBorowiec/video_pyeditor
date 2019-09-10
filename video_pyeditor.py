@@ -9,6 +9,7 @@ from video_editor import resizer
 from video_editor import metadata_editor
 from video_editor import joiner
 from video_editor import cropper
+from video_editor import recorder
 
 def interface(input_choice, video, video_name):
   if (input_choice == 1):
@@ -32,6 +33,8 @@ def interface(input_choice, video, video_name):
   elif (input_choice == 7):
     cropper.crop(video, video_name=video_name)
     video_name = video_name + '_cropped'
+  elif (input_choice == 8):
+    recorder.screen_record(video_name=video_name)
   else:
     print("Invalid choice!")
   return video_name
