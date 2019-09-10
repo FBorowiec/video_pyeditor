@@ -9,6 +9,7 @@ from video_editor import resizer
 from video_editor import metadata_editor
 from video_editor import joiner
 from video_editor import cropper
+from video_editor import recorder
 
 def interface(input_choice, video, video_name):
   if (input_choice == 1):
@@ -32,6 +33,9 @@ def interface(input_choice, video, video_name):
   elif (input_choice == 7):
     cropper.crop(video, video_name=video_name)
     video_name = video_name + '_cropped'
+  elif (input_choice == 8):
+    print("Please press 'q' to exit!")
+    recorder.screen_record(video_name=video_name)
   else:
     print("Invalid choice!")
   return video_name
@@ -50,7 +54,8 @@ def main():
   5. Edit date of a video \n\
   6. Concatenate two videos \n\
   7. Crop a video \n\
-  [1/2/3/4/5/6/7]: "))
+  8. Record desktop \n\
+  [1/2/3/4/5/6/7/8]: "))
     video = os.getcwd() + '/videos/' + video_name + '.mp4'
     print(video + " is being processed...")
     video_name = interface(input_choice, video=video, video_name=video_name)
