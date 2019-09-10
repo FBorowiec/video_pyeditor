@@ -53,7 +53,8 @@ def main():
   5. Edit date of a video \n\
   6. Concatenate two videos \n\
   7. Crop a video \n\
-  [1/2/3/4/5/6/7]: "))
+  8. Record desktop \n\
+  [1/2/3/4/5/6/7/8]: "))
     video = os.getcwd() + '/videos/' + video_name + '.mp4'
     print(video + " is being processed...")
     video_name = interface(input_choice, video=video, video_name=video_name)
