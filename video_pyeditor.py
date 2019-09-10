@@ -42,6 +42,8 @@ def interface(input_choice, video, video_name):
 
 def main():
   print(" VIDEO EDITOR")
+  if os.path.exists(os.getcwd() + '/videos/') == False:
+    os.mkdir(os.getcwd() + '/videos/')
   
   video_name = input("Please enter your mp4 video name (without the extension): ")
   
