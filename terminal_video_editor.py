@@ -42,7 +42,7 @@ def interface(input_choice, video, video_name):
 def main():
   print(" VIDEO EDITOR")
   if os.path.exists(os.getcwd() + '/videos/') == False:
-    os.mkdir(os.getcwd() + '/videos/')
+        os.mkdir(os.getcwd() + '/videos/')
   input("Please put your videos under the /videos directory!")
   video_name = input("Please enter your mp4 video name (without the extension): ")
   
@@ -52,10 +52,10 @@ def main():
   2. Trim a video\n\
   3. Change video aspect\n\
   4. Resize a video\n\
-  5. Edit date of a video \n\
-  6. Concatenate two videos \n\
-  7. Crop a video \n\
-  8. Record desktop \n\
+  5. Edit date of a video\n\
+  6. Concatenate two videos\n\
+  7. Crop a video\n\
+  8. Record desktop\n\
   Enter a number: "))
     video = os.getcwd() + '/videos/' + video_name + '.mp4'
     print(video + " is being processed...")
