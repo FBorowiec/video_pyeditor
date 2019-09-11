@@ -1,5 +1,9 @@
 ffmpeg>=1.4
+imageio>=2.5.0
+imageio-ffmpeg>=0.3.0
 moviepy>=1.0.0
-opencv-python>=4.1.0.25
 mss>=4.0.3
+opencv-python>=4.1.0.25
+pep8>=1.7.1
+pylint>=1.8.3
 pyscreenshot>=0.5.1

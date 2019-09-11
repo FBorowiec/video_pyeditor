@@ -34,7 +34,6 @@ def interface(input_choice, video, video_name):
     cropper.crop(video, video_name=video_name)
     video_name = video_name + '_cropped'
   elif (input_choice == 8):
-    print("Please press 'q' to exit!")
     recorder.screen_record(video_name=video_name)
   else:
     print("Invalid choice!")
