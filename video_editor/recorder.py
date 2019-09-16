@@ -6,7 +6,7 @@ import pyscreenshot as pys
 def screen_record(video_name):
   forcc = cv2.VideoWriter_fourcc(*'MP4V')
   out = cv2.VideoWriter(os.getcwd() + '/videos/' + video_name + '.mp4', forcc, 5.0, (1920,1080))
-input("Press 'q' to exit while in window mode!\n\
+  input("Press 'q' to exit while in window mode!\n\
   Press any key to proceed...")
   while True:
     img = pys.grab()
