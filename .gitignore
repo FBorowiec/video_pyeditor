@@ -10,6 +10,9 @@
 ## add an exception (using !) to the preceding rule to track a specific file
 #!package.json
 
+#bazel files
+bazel-*
+
 videos/
 *.pyc
 .vscode/

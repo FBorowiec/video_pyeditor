@@ -45,7 +45,7 @@ def main():
         os.mkdir(os.getcwd() + '/videos/')
   input("Please put your videos under the /videos directory!")
   video_name = input("Please enter your mp4 video name (without the extension): ")
-  
+
   proceed = True
   while (proceed):
     input_choice = int(input("  1. Rotate a video\n\
