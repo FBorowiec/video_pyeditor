@@ -1,66 +1,51 @@
-#!/usr/bin/env python3
+import argparse
 import os
-import json
+from pathlib import Path
 
-from video_editor import formatter
-from video_editor import rotator
-from video_editor import trimmer
-from video_editor import resizer
-from video_editor import metadata_editor
-from video_editor import joiner
-from video_editor import cropper
-from video_editor import recorder
+from lib.parser import Parser
+from lib.video_editor_lib import Utils
 
-def interface(input_choice, video, video_name):
-  if (input_choice == 1):
-    rotator.rotate_video(video, video_name=video_name)
-    video_name = video_name + '_rotated'
-  elif (input_choice == 2):
-    trimmer.trim_video(video, video_name=video_name)
-    video_name = video_name + '_trimmed'
-  elif (input_choice == 3):
-    formatter.format(video, video_name=video_name)
-    video_name = video_name + '_formatted'
-  elif (input_choice == 4):
-    resizer.resize_video(video, video_name=video_name)
-    video_name = video_name + '_resized'
-  elif (input_choice == 5):
-    metadata_editor.date_changer(video, video_name=video_name)
-    video_name = video_name + '_dated'
-  elif (input_choice == 6):
-    joiner.join_videos(video, video_name=video_name)
-    video_name = video_name + '_joined'
-  elif (input_choice == 7):
-    cropper.crop(video, video_name=video_name)
-    video_name = video_name + '_cropped'
-  elif (input_choice == 8):
-    recorder.screen_record(video_name=video_name)
+def interface():
+  args = Parser().parse_arguments()
+  video_editor = Utils(args.video_path)
+
+  if args.output_path:
+    print("do nothing")
+  elif args.rotate:
+    video_editor.rotate_video()
+  elif args.trim:
+    video_editor.trim_video()
+  elif args.modify_aspect:
+    video_editor.format()
+  elif args.resize:
+    video_editor.resize_video()
+  elif args.change_date:
+    video_editor.date_changer()
+  elif args.concatenate_videos:
+    video_editor.join_videos()
+  elif args.crop:
+    video_editor.crop()
+  elif args.desktop_record:
+    video_editor.screen_record()
   else:
-    print("Invalid choice!")
-  return video_name
+    print(f"\nWelcome to the Terminal Video Editor!\n\n"
+      "Please provide a valid argument option:\n"
+        "--video_path\n"
+        "--output_path\n\n"
+        "--rotate\n"
+        "--trim\n"
+        "--modify_aspect\n"
+        "--resize\n"
+        "--change_date\n"
+        "--concatenate_videos\n"
+        "--crop\n"
+        "--desktop_record\n"
+      )
+
 
 def main():
-  print(" VIDEO EDITOR")
-  if os.path.exists(os.getcwd() + '/videos/') == False:
-        os.mkdir(os.getcwd() + '/videos/')
-  input("Please put your videos under the /videos directory!")
-  video_name = input("Please enter your mp4 video name (without the extension): ")
 
-  proceed = True
-  while (proceed):
-    input_choice = int(input("  1. Rotate a video\n\
-  2. Trim a video\n\
-  3. Change video aspect\n\
-  4. Resize a video\n\
-  5. Edit date of a video\n\
-  6. Concatenate two videos\n\
-  7. Crop a video\n\
-  8. Record desktop\n\
-  Enter a number: "))
-    video = os.getcwd() + '/videos/' + video_name + '.mp4'
-    print(video + " is being processed...")
-    video_name = interface(input_choice, video=video, video_name=video_name)
-    proceed = json.loads(input("Do you want to proceed? [True, False]: ").lower())
+  interface()
 
 if (__name__ == '__main__'):
   main()

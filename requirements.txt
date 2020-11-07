@@ -1,3 +1,4 @@
+argparse>=1.4.0
 ffmpeg>=1.4
 imageio>=2.5.0
 imageio-ffmpeg>=0.3.0
