@@ -11,7 +11,7 @@ from moviepy.video.io.ffmpeg_tools import ffmpeg_resize
 from moviepy.video.fx.all import rotate
 
 
-class Utils:
+class VideoEditor:
 
   def __init__(self, video):
     self.video_path = str(video)

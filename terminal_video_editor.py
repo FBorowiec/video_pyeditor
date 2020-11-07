@@ -1,17 +1,11 @@
-import argparse
-import os
-from pathlib import Path
-
-from lib.parser import Parser
-from lib.video_editor_lib import Utils
+from lib.parser import parse_arguments
+from lib.video_editor_lib import VideoEditor
 
 def interface():
-  args = Parser().parse_arguments()
-  video_editor = Utils(args.video_path)
+  args = parse_arguments()
+  video_editor = VideoEditor(args.video_path)
 
-  if args.output_path:
-    print("do nothing")
-  elif args.rotate:
+  if args.rotate:
     video_editor.rotate_video()
   elif args.trim:
     video_editor.trim_video()
@@ -28,10 +22,8 @@ def interface():
   elif args.desktop_record:
     video_editor.screen_record()
   else:
-    print(f"\nWelcome to the Terminal Video Editor!\n\n"
+    print("\nWelcome to the Terminal Video Editor!\n\n"
       "Please provide a valid argument option:\n"
-        "--video_path\n"
-        "--output_path\n\n"
         "--rotate\n"
         "--trim\n"
         "--modify_aspect\n"
@@ -43,9 +35,5 @@ def interface():
       )
 
 
-def main():
-
+if __name__ == '__main__':
   interface()
-
-if (__name__ == '__main__'):
-  main()

@@ -1,5 +1,4 @@
 1. Names contain duplicated .mp4
-2. Need to add =1 to passed args
-3. Failing metadata editor
-4. Need to have ffmpeg installed on the system
-5. Segmentation fault with screen recorder
+2. Failing metadata editor
+3. Need to have ffmpeg installed on the system
+4. Segmentation fault with screen recorder
