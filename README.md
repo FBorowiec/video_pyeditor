@@ -11,6 +11,12 @@ The script allows you to:
 
 ## How to run
 
+First, you need to instal ```ffmpeg```:
+
+```sudo apt install ffmpeg```
+
+Then run the video editor with:
+
 ```bash
-bazel run //:video_pyeditor
+bazel run //:video_pyeditor -- --video_path=/home/fra/Videos/my_video.mp4 --trim
 ```
