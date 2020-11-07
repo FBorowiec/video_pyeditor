@@ -29,7 +29,7 @@ class Utils:
       Horizontal position, in the input video, of the left edge of the output video. It defaults to (in_w-out_w)/2. This expression is evaluated per-frame: ")
       y = input("Please provide y crop value: \n\
       Vertical position, in the input video, of the top edge of the output video. It defaults to (in_h-out_h)/2. This expression is evaluated per-frame: ")
-      cmd = "ffmpeg -i \"" + self.video_path  + "\" -vf \"crop=" + w + ":" + h + ":" + x + ":" + y + "\" " + os.getcwd() + self.video_path + '_cropped.mp4'
+      cmd = "ffmpeg -i \"" + self.video_path  + "\" -vf \"crop=" + w + ":" + h + ":" + x + ":" + y + "\" " + self.video_path + '_cropped.mp4'
       returned_value = subprocess.call(cmd, shell=True)
       return "Video cropped successfully!" + str(returned_value)
 
@@ -48,7 +48,7 @@ class Utils:
       width_v1 = vid1.get(cv2.CAP_PROP_FRAME_WIDTH)
       first_video_resolution = [width_v1, height_v1]
 
-      second_video_name = input("Please enter name of second video to be appended: ")
+      second_video_name = input("Please enter name of second video to be appended (without the path nor extension): ")
       second_video = os.path.join(self.video_folder_path, second_video_name + '.mp4')
       vid2 = cv2.VideoCapture(second_video)
       height_v2 = vid2.get(cv2.CAP_PROP_FRAME_HEIGHT)
@@ -119,11 +119,3 @@ class Utils:
     end_t = int(input("end time (sec): "))
     ffmpeg_extract_subclip(self.video_path, start_t, end_t, targetname=self.video_path + "_trimmed.mp4")
     return "Video trimmed successfully!"
-
-    #  start_t = int(input("start time (sec): "))
-    #  end_t = int(input("end time (sec): "))
-    #  clip = VideoFileClip(video)
-    #  new_clip = clip.subclip(start_t, end_t)
-    #  video_rotated = os.getcwd() + '/videos/' + video_name + '_trimmed.mp4'
-    #  new_clip.write_videofile(video_rotated)
-    #  return "Video trimmed successfully!"
