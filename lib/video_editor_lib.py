@@ -61,8 +61,7 @@ class VideoEditor:
             + self.video_name
             + "_cropped.mp4"
         )
-        returned_value = subprocess.call(cmd, shell=True)
-        return "Video cropped successfully!" + str(returned_value)
+        subprocess.call(cmd, shell=True)
 
     def format(self):
         aspect = input("Please choose aspect: [16:10, 16:9, 4:3, 3:2, 1:1]: ")
@@ -75,8 +74,7 @@ class VideoEditor:
             + self.video_name
             + '_formatted.mp4"'
         )
-        returned_value = subprocess.call(cmd, shell=True)
-        return "Video formatted successfully!"
+        subprocess.call(cmd, shell=True)
 
     def join_videos(self):
 
@@ -115,25 +113,23 @@ class VideoEditor:
             + self.video_name
             + "_joined.mp4"
         )
-        returned_value = subprocess.call(cmd3, shell=True)
-        returned_value = subprocess.call(cmd4, shell=True)
+        subprocess.call(cmd3, shell=True)
+        subprocess.call(cmd4, shell=True)
         cmd5 = "rm temp*"
-        returned_value = subprocess.call(cmd5, shell=True)
-        return "Videos concatenated successfully!"
+        subprocess.call(cmd5, shell=True)
 
     def date_changer(self):
-        date = input('Please choose a date: "2015-12-25T12:34:56:"')
+        date = input("Please choose a date (e.g.: 2015-12-25T12:34:56): ")
         cmd = (
             'ffmpeg -i "'
             + self.video_path
             + '" -c copy -map 0 -metadata creation_time="'
             + date
-            + " "
+            + '" "'
             + self.video_name
             + '_dated.mp4"'
         )
-        returned_value = subprocess.call(cmd, shell=True)
-        return "Video's date edited successfully!" + str(returned_value)
+        subprocess.call(cmd, shell=True)
 
     def screen_record(self):
         forcc = cv2.VideoWriter_fourcc(*"MP4V")
@@ -154,8 +150,6 @@ class VideoEditor:
         out.release()
         cv2.destroyAllWindows()
 
-        return None
-
     def resize_video(self):
         size = int(input("Please choose size: [360, 720, 1080, 2160]: "))
         size_tuple = (size * (16 / 9), size)
@@ -164,7 +158,6 @@ class VideoEditor:
         ffmpeg_resize(
             self.video_path, output=self.video_name + "_resized.mp4", size=size_tuple
         )
-        return "Video resized successfully!"
 
     def rotate_video(self):
         angle = int(input(("Please enter rotation value [90, 180, -90]: ")))
@@ -172,7 +165,6 @@ class VideoEditor:
         new_clip = rotate(clip, angle, unit="deg", resample="bicubic", expand=True)
         video_rotated = self.video_name + "_rotated.mp4"
         new_clip.write_videofile(video_rotated)
-        return "Video rotated successfully!"
 
     def trim_video(self):
         start_t = int(input("start time (sec): "))
@@ -180,4 +172,3 @@ class VideoEditor:
         ffmpeg_extract_subclip(
             self.video_path, start_t, end_t, targetname=self.video_name + "_trimmed.mp4"
         )
-        return "Video trimmed successfully!"
