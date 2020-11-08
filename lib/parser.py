@@ -21,11 +21,7 @@ def parse_arguments():
         required=False,
         action="store_true",
     )
-    editor.add_argument(
-        "--resize",
-        help="Resize",
-        required=False,
-        action="store_true")
+    editor.add_argument("--resize", help="Resize", required=False, action="store_true")
     editor.add_argument(
         "--change_date",
         help="Edit date of a video",
@@ -42,9 +38,7 @@ def parse_arguments():
         "--crop", help="Crop a video", required=False, action="store_true"
     )
     editor.add_argument(
-        "--desktop_record",
-        help="Record desktop",
-        required=False,
-        action="store_true")
+        "--desktop_record", help="Record desktop", required=False, action="store_true"
+    )
 
     return parser.parse_args()

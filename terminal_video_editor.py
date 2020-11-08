@@ -5,6 +5,7 @@ from lib.video_editor_lib import VideoEditor
 def interface():
     args = parse_arguments()
     video_editor = VideoEditor(args.video_path)
+    video_editor.print()
 
     if args.rotate:
         video_editor.rotate_video()

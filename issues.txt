@@ -1,4 +1,3 @@
-1. Names contain duplicated .mp4
-2. Failing metadata editor
-3. Need to have ffmpeg installed on the system
-4. Segmentation fault with screen recorder
+1. Failing metadata editor
+2. Need to have ffmpeg installed on the system
+3. Segmentation fault with screen recorder
