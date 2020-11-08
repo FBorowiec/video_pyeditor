@@ -1,1 +1,0 @@
-1. Segmentation fault with screen recorder

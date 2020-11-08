@@ -37,8 +37,5 @@ def parse_arguments():
     editor.add_argument(
         "--crop", help="Crop a video", required=False, action="store_true"
     )
-    editor.add_argument(
-        "--desktop_record", help="Record desktop", required=False, action="store_true"
-    )
 
     return parser.parse_args()

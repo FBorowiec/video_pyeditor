@@ -131,25 +131,6 @@ class VideoEditor:
         )
         subprocess.call(cmd, shell=True)
 
-    def screen_record(self):
-        forcc = cv2.VideoWriter_fourcc(*"MP4V")
-        out = cv2.VideoWriter(self.video_name + ".mp4", forcc, 5.0, (1920, 1080))
-        input(
-            "Press 'q' to exit while in window mode!\n\
-    Press any key to proceed..."
-        )
-        while True:
-            img = pys.grab()
-            img_np = np.array(img)
-            frame = cv2.cvtColor(img_np, cv2.COLOR_BGR2RGB)
-            cv2.imshow("Screen", frame)
-            out.write(frame)
-            if cv2.waitKey(20) & 0xFF == ord("q"):
-                break
-
-        out.release()
-        cv2.destroyAllWindows()
-
     def resize_video(self):
         size = int(input("Please choose size: [360, 720, 1080, 2160]: "))
         size_tuple = (size * (16 / 9), size)
